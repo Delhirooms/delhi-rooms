@@ -8,47 +8,33 @@
         body { font-family: sans-serif; background: #f7f6f2; padding: 20px; }
         .card { background: white; padding: 20px; border-radius: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); max-width: 400px; margin: auto; }
         .btn { width: 100%; padding: 15px; background: #01696f; color: white; border: none; border-radius: 10px; margin: 10px 0; font-size: 16px; }
-        .form-group { margin: 15px 0; text-align: left; }
-        label { display: block; margin-bottom: 5px; font-weight: bold; }
-        select, input, textarea { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px; }
-        .hidden { display: none; }
+        select { width: 100%; padding: 10px; margin: 10px 0; height: 50px; font-size: 16px; border: 1px solid #ccc; border-radius: 5px; }
     </style>
 </head>
 <body>
-    <div class="card" id="home">
+    <div class="card">
         <h1>Delhi Rooms</h1>
-        <button class="btn" onclick="show('seeker')">Room Dhoondhein</button>
-        <button class="btn" onclick="show('owner')">Owner: List karein</button>
+        <label>City/Area select karein:</label>
+        <select id="city">
+            <option value="">-- City Select Karein --</option>
+            <option value="Central Delhi">Central Delhi</option>
+            <option value="East Delhi">East Delhi</option>
+            <option value="New Delhi">New Delhi</option>
+            <option value="North Delhi">North Delhi</option>
+            <option value="North East Delhi">North East Delhi</option>
+            <option value="North West Delhi">North West Delhi</option>
+            <option value="Shahdara">Shahdara</option>
+            <option value="South Delhi">South Delhi</option>
+            <option value="South East Delhi">South East Delhi</option>
+            <option value="South West Delhi">South West Delhi</option>
+            <option value="West Delhi">West Delhi</option>
+            <option value="Noida">Noida</option>
+            <option value="Greater Noida">Greater Noida</option>
+            <option value="Gurugram">Gurugram</option>
+            <option value="Faridabad">Faridabad</option>
+            <option value="Ghaziabad">Ghaziabad</option>
+        </select>
+        <button class="btn" onclick="alert('Searching in ' + document.getElementById('city').value)">Search</button>
     </div>
-
-    <div class="card hidden" id="seeker">
-        <h2>Room Dhoondhein</h2>
-        <div class="form-group">
-            <label>City/Area</label>
-            <select>
-                <option>Delhi - Mukherjee Nagar</option>
-                <option>Noida - Sector 62</option>
-                <option>Gurugram - Sector 14</option>
-            </select>
-        </div>
-        <button class="btn" onclick="alert('Searching...')">Search</button>
-        <button class="btn" style="background:#666" onclick="show('home')">Back</button>
-    </div>
-
-    <div class="card hidden" id="owner">
-        <h2>List Room</h2>
-        <div class="form-group"><label>Rent</label><input placeholder="₹"></div>
-        <button class="btn" onclick="alert('Listing Saved!')">Save</button>
-        <button class="btn" style="background:#666" onclick="show('home')">Back</button>
-    </div>
-
-    <script>
-        function show(id) {
-            document.getElementById('home').classList.add('hidden');
-            document.getElementById('seeker').classList.add('hidden');
-            document.getElementById('owner').classList.add('hidden');
-            document.getElementById(id).classList.remove('hidden');
-        }
-    </script>
 </body>
 </html>
